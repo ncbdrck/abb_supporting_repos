@@ -1,0 +1,13 @@
+<launch>
+
+  <node pkg="pick_and_place_env" type="conv_sensor_signal_pub" name="conv_sensor_state_publisher" output="screen" />
+  <node pkg="pick_and_place_env" type="conv_state_sub" name="conv_state_subscriber" output="screen" />
+  <node pkg="pick_and_place_env" type="gripper_state_sub" name="gripper_state_subscriber" output="screen" />
+
+
+  <node pkg="computer_vision_pkg" type="get_poitcloud_topic.py" name="pointcloud_topic_subscriber" output="screen" />
+  <node pkg="computer_vision_pkg" type="generate_obj_tf.py" name="object_tf_broadcaster" output="screen" />
+  <node pkg="computer_vision_pkg" type="robot_control.py" name="move_group_robotic_arm_python_interface" output="screen" />
+  <node pkg="computer_vision_pkg" type="main_script.py" name="main_app_node" output="screen" />
+
+</launch>
